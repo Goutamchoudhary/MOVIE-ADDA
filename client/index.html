@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Movie Adda</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>  
+
+    <body>
+        <section id="nav-bar">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="index.html"><img src="Movie-Adda-3.png" alt="Movie Adda"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fa fa-bars" ></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">CONTACT</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+        </section> 
+        
+        <section id="review-about-section">  
+          <div class="About-review-model">
+            <h1>Movie Review Prediction App</h1>
+          </div>
+          <p>A Machine Learning Model build with Neural Networks</p>
+        </section>
+        <section id="review-container-section">
+          <div class="review-container"> 
+              <div class="review-desc-box">  
+                <div class="review-description">    
+                  <h2>Want to experience the magic of our Machine Learning Model?</h2>
+                  <p>Tell us your opinions about any  movie.</p>
+                </div>
+                <div id="ReviewStatus" class="result">
+                  <h2 class="predict-head"><span></span></h2>
+                </div>
+              </div>
+
+              <div class="review-box">
+                <form action="/" method="POST">
+                  <textarea class='message-box' name="message" id="uiMessage" rows="10" cols="60" placeholder="Enter Your Review Here..."></textarea><br/><br>
+                  <button class="submit-1 btn-primary" type="button" name="submit" onclick="onClickedPredictReview()" value="submit-review">Predict Review</button>
+                </form>
+              </div>
+            
+          </div>  
+        </section>  
+
+        <section id="recom-about-section">
+          <div class="About-recom-engine">
+            <h1>Movie Recommendation Engine</h1>
+            <p>A machine learning model build with collaborative filtering</p>
+          </div>
+        </section>
+        <section class="recom-container-section">
+            <div class="recom-container">
+                <div class="recom-box">
+                  <h2>Tell us your taste</h2> 
+                  <p>And we will recommend you 5 movies which you will definitely going to like.</p>
+                  
+                  <form method="POST">
+                      <h3>Movie 1</h3>
+                      <div class="movie-list">
+                        <select class="movie-name" name="movie_name_1" id="uimovieName_1">
+                          <option value="" disabled="disabled" selected="selected">Choose Movie 1</option>
+                          <option>Empty</option>
+                        </select>
+                      </div>
+                        
+                      <h3>Rating</h3>
+                      <div class="switch-field">
+                        <input type="radio" id="radio-R1-1" name="uiRatings_1" value="1"/>
+                        <label for="radio-R1-1">1</label>
+                        <input type="radio" id="radio-R1-2" name="uiRatings_1" value="2"/>
+                        <label for="radio-R1-2">2</label>
+                        <input type="radio" id="radio-R1-3" name="uiRatings_1" value="3"/>
+                        <label for="radio-R1-3">3</label>
+                        <input type="radio" id="radio-R1-4" name="uiRatings_1" value="4"/>
+                        <label for="radio-R1-4">4</label>
+                        <input type="radio" id="radio-R1-5" name="uiRatings_1" value="5"/>
+                        <label for="radio-R1-5">5</label>
+                      </div>
+                        
+                      <h3>Movie 2</h3>
+                      <div class="movie-list">
+                        <select class="movie-name" name="movie_name_2" id="uimovieName_2">
+                          <option value="" disabled="disabled" selected="selected">Choose Movie 2</option>
+                          <option>Empty</option>
+                        </select>
+                      </div>
+                        
+                      <h3>Rating</h3>
+                      <div class="switch-field">
+                        <input type="radio" id="radio-R2-1" name="uiRatings_2" value="1"/>
+                        <label for="radio-R2-1">1</label>
+                        <input type="radio" id="radio-R2-2" name="uiRatings_2" value="2"/>
+                        <label for="radio-R2-2">2</label>
+                        <input type="radio" id="radio-R2-3" name="uiRatings_2" value="3"/>
+                        <label for="radio-R2-3">3</label>
+                        <input type="radio" id="radio-R2-4" name="uiRatings_2" value="4"/>
+                        <label for="radio-R2-4">4</label>
+                        <input type="radio" id="radio-R2-5" name="uiRatings_2" value="5"/>
+                        <label for="radio-R2-5">5</label>
+                      </div>
+                        
+                      <button class="submit-2 btn-primary" onclick="onClickedRecommendations()" type="button">Recommendations</button>
+                      
+                  </form>
+                </div>
+                <div class="recom-result"> 
+                  <div id="result-desc"><p></p></div><br> 
+                  <div id="result-1" class="result"><p></p></div>
+                  <div id="result-2" class="result"><p></p></div>
+                  <div id="result-3" class="result"><p></p></div>
+                  <div id="result-4" class="result"><p></p></div>
+                  <div id="result-5" class="result"><p></p></div>
+                </div> 
+
+            </div>  
+        </section>
+        
+    </body>
+
+    <footer class="footer">
+      <div class="social-menu">
+         <ul>
+            <div class="contact">
+             <p class='footer-description'>© 2020 Copyright:  Gautam Choudhary.</p>
+            </div>
+            <div class="social-list">
+               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+               <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+               <li><a href="#"><i class="fa fa-github"></i></a></li>
+            </div>   
+         </ul>
+      </div>    
+   </footer>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="app.js"></script>
+
+</html>

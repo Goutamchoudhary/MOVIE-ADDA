@@ -2,8 +2,8 @@
 from flask import Flask, render_template, request, url_for, jsonify
 import util
 import re
-from nltk.corpus import stopwords
-from nltk.stem import PorterStemmer
+#from nltk.corpus import stopwords
+#from nltk.stem import PorterStemmer
 import pickle 
 import json
 import pandas as pd
@@ -45,9 +45,8 @@ def prediction(review):
   rev = _tfidf.transform(vect)
   
   rev_sparse_tensor = convert_sparse_matrix_to_sparse_tensor(rev)
-  final_review = tf.sparse.reorder(rev_sparse_tensor)
 
-  my_prediction = classifier.predict(final_review)
+  my_prediction = classifier.predict(rev_sparse_tensor)
   predicted_value = my_prediction.item(0)
   print(predicted_value)
 

@@ -96,7 +96,7 @@
 }
 
 .navbar{
-  background: linear-gradient(45deg, #107892, #028036, #69264f);
+  background: linear-gradient(45deg, #14d3da, #07d35c, #a0e00a);
 	background-size: 500% 500%; 
 	animation: change-gradient 10s ease-in-out infinite;
   padding: 0 !important;

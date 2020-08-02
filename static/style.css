@@ -11,11 +11,13 @@
 }
 
 .navbar{
-  background: linear-gradient(45deg, #3a1069, #195a34, #030680);
-	background-size: 500% 500%; 
+  background: linear-gradient(45deg, #7423cf, #26a35a, #9be01a);
+  /*background-color: #fff;*/
+  background-size: 500% 500%; 
 	animation: change-gradient 10s ease-in-out infinite;
   padding: 0 !important;
 }
+
 
 @keyframes change-gradient {
 	0%{
@@ -28,6 +30,7 @@
 		background-position: 0 50%;
 	}
 }
+
 
 .navbar-brand img {
   height: 40px;

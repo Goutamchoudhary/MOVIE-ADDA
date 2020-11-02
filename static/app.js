@@ -21,6 +21,35 @@ function getRating_movie2() {
 }
 
 
+function onPageLoad() {
+  console.log( "document loaded" );
+  var url = '/get_movies_list'; // Use this if you are NOT using nginx 
+  
+  // var url = "/api/get_movies_list"; // Use this if  you are using nginx.
+  $.get(url,function(data, status) {
+      console.log("got response for get_movies_list request");
+      if(data) {
+          var movies_name_list = data.movies_list;
+          $('#uimovieName_1').empty();
+          for(var i in movies_name_list) {
+              var opt = new Option(movies_name_list[i]);
+              $('#uimovieName_1').append(opt);
+          }
+        
+          $('#uimovieName_2').empty();
+          for(var i in movies_name_list) {
+              var opt = new Option(movies_name_list[i]);
+              $('#uimovieName_2').append(opt);
+          }
+      }
+  });
+
+  var review_submit = document.getElementsByClassName('submit-1')[0]
+  review_submit.addEventListener('click', onClickedPredictReview)
+
+}
+
+
 function onClickedRecommendations() {
   console.log("Recommendations button clicked")
   var result_desc = document.getElementById("result-desc");
@@ -60,47 +89,31 @@ function onClickedRecommendations() {
 function onClickedPredictReview() {
   console.log("Estimate review button clicked");
   var myReview = document.getElementById("uiMessage");
-  var revResult = document.getElementById("ReviewStatus");
+  var revResult = document.getElementById("rev-result");
 
   var url = '/predict_review'; //Use this if you are NOT using nginx 
 
   // var url = "/api/predict"; // Use this if  you are using nginx.
 
   $.post(url, {
-      review: myReview.toString()
+      review: myReview.value
   },function(data, status) {
       console.log(data.my_prediction.toString());
-      revResult.innerHTML = "<h2>Prediction:  <span>  " + data.my_prediction.toString() +    "</span></h2>";
+
+      var pos_review = "Great! This is the Positive review.";
+      var neg_review = "Oops! This is the Negative review.";
+      if(data.my_prediction == pos_review){
+         revResult.innerHTML = "<span style=\"color:green\">  Great! This is the Positive review. &#128525; </span>";
+      }
+      else if(data.my_prediction == neg_review){
+        revResult.innerHTML = "<span style=\"color:red\">  Oops! This is the Negative review. &#128532;  </span>";
+      }
+
 
       console.log(status);
   });
 
 }
 
-function onPageLoad() {
-  console.log( "document loaded" );
-  var url = '/get_movies_list'; // Use this if you are NOT using nginx 
-  
-  // var url = "/api/get_movies_list"; // Use this if  you are using nginx.
-  $.get(url,function(data, status) {
-      console.log("got response for get_movies_list request");
-      if(data) {
-          var movies_name_list = data.movies_list;
-          var uimovieName = document.getElementById("uimovieName_1");
-          $('#uimovieName_1').empty();
-          for(var i in movies_name_list) {
-              var opt = new Option(movies_name_list[i]);
-              $('#uimovieName_1').append(opt);
-          }
-
-          var uimovieName = document.getElementById("uimovieName_2");
-          $('#uimovieName_2').empty();
-          for(var i in movies_name_list) {
-              var opt = new Option(movies_name_list[i]);
-              $('#uimovieName_2').append(opt);
-          }
-      }
-  });
-}
 
 window.onload = onPageLoad;

@@ -2,8 +2,7 @@
 from flask import Flask, render_template, request, url_for, jsonify
 import util
 import re
-#from nltk.corpus import stopwords
-#from nltk.stem import PorterStemmer
+from flask_cors import CORS
 import pickle 
 import json
 import pandas as pd
@@ -17,7 +16,7 @@ import nltk
 
 
 app = Flask(__name__)
-
+CORS(app)
 
 # Load the Movie Rating Prediction model  
 classifier = keras.models.load_model("my_model")
@@ -45,15 +44,18 @@ def prediction(review):
   rev = _tfidf.transform(vect)
   
   rev_sparse_tensor = convert_sparse_matrix_to_sparse_tensor(rev)
+  ordered_sparse_tensor = tf.compat.v1.sparse.reorder(rev_sparse_tensor)
 
-  my_prediction = classifier.predict(rev_sparse_tensor)
+  my_prediction = classifier.predict(ordered_sparse_tensor)
   predicted_value = my_prediction.item(0)
   print(predicted_value)
 
   if predicted_value >= 0.5:
     prediction_status = "Great! This is the Positive review."
-  else:
+    print("Hello1")
+  elif predicted_value < 0.5:
     prediction_status = "Oops! This is the Negative review."
+    print("Hello2")
   
   return prediction_status
 
@@ -88,13 +90,14 @@ def get_movies_list():
 
 @app.route('/predict_review', methods=['POST'])
 def predict_review():
-  review = request.form['review']
+
+  review = str(request.form['review'])
             
   response = jsonify({
       'my_prediction': prediction(review)
   })
   
-  """response.headers.add('Access-Control-Allow-Origin', '*') """
+  response.headers.add('Access-Control-Allow-Origin', '*')
 
   return response
 

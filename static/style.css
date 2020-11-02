@@ -1,4 +1,7 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Frijole&display=swap');
+
+
 * {
   margin: 0;
   padding: 0;
@@ -11,14 +14,14 @@
 }
 
 .navbar{
-  background: linear-gradient(45deg, #7e21e9, #1ab95d, #9ddd26);
+  background: linear-gradient(45deg, #443B96, #F60B68, #F4483A);
   /*background-color: #fff;*/
   background-size: 500% 500%; 
-	animation: change-gradient 10s ease-in-out infinite;
+	/*animation: change-gradient 10s ease-in-out infinite;*/
   padding: 0 !important;
 }
 
-
+/*
 @keyframes change-gradient {
 	0%{
 		background-position: 0 50%;
@@ -30,6 +33,7 @@
 		background-position: 0 50%;
 	}
 }
+*/
 
 
 .navbar-brand img {
@@ -39,6 +43,8 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
+
 
 .navbar-nav li{
   padding: 0 10px;
@@ -51,7 +57,8 @@
 
 .navbar-nav li a{
   color: #fff !important;
-  font-weight: 630px;
+  font-weight: bold;
+  font-size: 20px;
   float: right;
   text-align: left;
 }
@@ -64,6 +71,7 @@
 .navbar-toggler{
   outline: none !important;
 }
+
 
 #review-about-section{
   padding: 240px 300px 260px 320px;
@@ -250,13 +258,15 @@
   padding: 8px 25px;
   border: none;
   border-radius: 50px;
-  background: linear-gradient(to right, rgb(147, 8, 160), rgb(80, 7, 122));
+  /*background: linear-gradient(to right, rgb(23, 65, 144), rgb(47, 141, 248));*/
+  background-color: forestgreen;
 }
 
 .btn-primary:hover{
-  background: #fff;
-  color: black;
-  border: 1px solid #3b5999;
+  /*background: linear-gradient(to right, rgb(23, 65, 144), rgb(47, 141, 248));*/
+  background-color: indigo;
+  color: white;
+  /*border: 1px solid #64f0f5;*/
 }
 
 .switch-field {
@@ -292,7 +302,8 @@
 }
 
 .switch-field input:checked + label {
-	background-color: #a5dc86;
+  background-color: #3760e6;
+  color: #FFFFFF;
 	box-shadow: none;
 }
 

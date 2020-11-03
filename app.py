@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, url_for, jsonify
 import util
 import re
-from flask_cors import CORS
 import pickle 
 import json
 import pandas as pd
@@ -16,7 +15,6 @@ import nltk
 
 
 app = Flask(__name__)
-CORS(app)
 
 # Load the Movie Rating Prediction model  
 classifier = keras.models.load_model("my_model")

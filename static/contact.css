@@ -136,7 +136,8 @@
 
 .navbar-nav li a{
   color: #fff !important;
-  font-weight: bold;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
   float: right;
   text-align: left;

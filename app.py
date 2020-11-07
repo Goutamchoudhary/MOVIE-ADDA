@@ -1,7 +1,6 @@
 # Importing essential libraries
 from flask import Flask, render_template, request, url_for, jsonify
 import util
-import re
 import pickle 
 import json
 import pandas as pd
@@ -11,7 +10,6 @@ import os
 os.environ["CUDA_VISIBLE_DEVICES"]="-1" 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
-import nltk
 
 
 app = Flask(__name__)
@@ -43,7 +41,6 @@ def prediction(review):
   
   rev_sparse_tensor = convert_sparse_matrix_to_sparse_tensor(rev)
   ordered_sparse_tensor = tf.compat.v1.sparse.reorder(rev_sparse_tensor)
-
   my_prediction = classifier.predict(ordered_sparse_tensor)
   predicted_value = my_prediction.item(0)
   print(predicted_value)

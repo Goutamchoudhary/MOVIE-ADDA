@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'movie-adda'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_4a35a0059a5448a38fe8f523548a650c }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_cf3b90f13a2244fa8132dc0858ce6a01 }}

@@ -5,3 +5,8 @@
 ### The application is deployed on Microsoft Azure and is up and running.
 
 ### Link to the Website - [https://movie-adda.azurewebsites.net/](https://movie-adda.azurewebsites.net/)
+
+
+### Demo
+
+https://res.cloudinary.com/du7od2uuc/video/upload/v1664450166/movie%20adda/movie-adda-demo_ckr2fk.mkv

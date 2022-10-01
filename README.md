@@ -9,4 +9,8 @@
 
 ### Demo
 
-https://res.cloudinary.com/du7od2uuc/video/upload/v1664450166/movie%20adda/movie-adda-demo_ckr2fk.mkv
+
+
+
+https://user-images.githubusercontent.com/68272020/193395619-cbc51a7c-1c72-4b8b-8a11-39d5dac6812e.mp4
+

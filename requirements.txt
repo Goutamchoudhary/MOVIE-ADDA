@@ -5,7 +5,7 @@ scikit-learn==1.1.1
 matplotlib==3.5.2
 pandas==1.4.3
 jsonpickle==2.2.0
-setuptools==41.2.0
+setuptools==65.5.1
 gunicorn==20.0.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
